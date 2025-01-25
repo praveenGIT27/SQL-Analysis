@@ -1,4 +1,4 @@
-# SQL-Analysis
+# SQL Project
 SQL Data Analysis
 
 
