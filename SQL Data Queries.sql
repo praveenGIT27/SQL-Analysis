@@ -85,3 +85,77 @@ FROM (
     order by order_delivered_customer_date asc) a
 group by a.month
 order by month_no asc;
+
+
+4)
+-- The below query analyzes the monthly revenue and average review score for each month in 2018, using the order_items table for calculating revenue and the order_reviews table for calculating review scores.
+
+
+---We’ll use:
+
+--A subquery to calculate monthly revenue from the order_items table.
+--Join it with the average monthly review score from the order_reviews table.
+-- Join it with the payments table to get the total payment by payment type.
+
+-- Impact : Combines revenue, customer satisfaction, and payment patterns for a full picture.
+
+
+SELECT 
+revenue.year,
+revenue.month_name,
+revenue.total_revenue,
+reviews.average_review_score,
+COALESCE(payments.total_payment, 0) AS total_payment,
+payments.payment_type
+
+FROM 
+
+    (SELECT 
+        EXTRACT(MONTH FROM oi.shipping_limit_date) AS month,
+        EXTRACT(YEAR FROM oi.shipping_limit_date) AS year,
+        CASE 
+            WHEN EXTRACT(MONTH FROM oi.shipping_limit_date) = 1 THEN 'Jan'
+            WHEN EXTRACT(MONTH FROM oi.shipping_limit_date) = 2 THEN 'Feb'
+            WHEN EXTRACT(MONTH FROM oi.shipping_limit_date) = 3 THEN 'Mar'
+            WHEN EXTRACT(MONTH FROM oi.shipping_limit_date) = 4 THEN 'Apr'
+            WHEN EXTRACT(MONTH FROM oi.shipping_limit_date) = 5 THEN 'May'
+            WHEN EXTRACT(MONTH FROM oi.shipping_limit_date) = 6 THEN 'Jun'
+            WHEN EXTRACT(MONTH FROM oi.shipping_limit_date) = 7 THEN 'Jul'
+            WHEN EXTRACT(MONTH FROM oi.shipping_limit_date) = 8 THEN 'Aug'
+            WHEN EXTRACT(MONTH FROM oi.shipping_limit_date) = 9 THEN 'Sep'
+            WHEN EXTRACT(MONTH FROM oi.shipping_limit_date) = 10 THEN 'Oct'
+            WHEN EXTRACT(MONTH FROM oi.shipping_limit_date) = 11 THEN 'Nov'
+            WHEN EXTRACT(MONTH FROM oi.shipping_limit_date) = 12 THEN 'Dec'
+        END AS month_name,
+        SUM(oi.price) AS total_revenue
+    FROM order_items oi
+    WHERE oi.shipping_limit_date BETWEEN '2016-01-01' AND '2018-12-31'
+    GROUP BY year, month ) revenue
+
+LEFT JOIN (
+    SELECT 
+    EXTRACT(MONTH from oi.shipping_limit_date) as month,
+    AVG(r.review_score) as average_review_score
+    FROM order_items oi
+    JOIN reviews r on oi.order_id = r.order_id
+    GROUP BY month) reviews
+
+ON revenue.month = reviews.month
+
+LEFT JOIN 
+(
+SELECT 
+    EXTRACT(MONTH FROM o.order_purchase_timestamp) AS month,
+    EXTRACT(YEAR FROM o.order_purchase_timestamp) AS year, 
+    SUM(p.payment_value) AS total_payment,
+    p.payment_type
+    from payments p
+    join orders o on p.order_id = o.order_id
+    group by year, month , p.payment_type ) payments
+
+ON revenue.year = payments.year AND revenue.month = payments.month
+ORDER BY revenue.year, revenue.month;
+
+
+
+
