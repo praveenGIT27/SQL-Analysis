@@ -46,7 +46,7 @@ Volatile churn rates in the early months are due to a low customer base.
 
 November 2017 and September 2018 exhibit unusually high churn rates, indicating possible operational or seasonal challenges.
 
-![Screenshot Description]
+![Screenshot Description](https://github.com/praveenGIT27/SQL-Analysis/blob/main/Query%203%20SS.png)
 
 
 
