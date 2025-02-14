@@ -1,6 +1,4 @@
-# SQL Project
-SQL Ecommerce Data Analysis Project
-
+# SQL Ecommerce Data Analysis Project
 
 Query: Top 5 Cities by Total Revenue (2016-2018)
 
