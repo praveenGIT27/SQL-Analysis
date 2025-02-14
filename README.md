@@ -30,6 +30,4 @@ Use Case :
 Demand Forecasting : Marketing and Sales Teams can predict periods of high demand (April to September) and prepare promotional activities around these months.
 Resource Allocation and Logistics Planning : Operations Teams can allocate additional resources, such as delivery staff and support teams, during peak order periods to ensure smooth order fulfillment.
 
-
-
-
+![Screenshot Description](https://github.com/praveenGIT27/SQL-Analysis/blob/main/Query%202%20SS.png)
