@@ -53,6 +53,17 @@ November 2017 and September 2018 exhibit unusually high churn rates, indicating 
 
 This query combines data from revenue, review scores, and payment methods to provide a comprehensive view of monthly business performance. It’s useful for understanding the relationship between sales performance and customer satisfaction while identifying payment trends.
 
+Observations:
 
+Consistent Revenue Growth:The data shows that revenue increases steadily across multiple months, with some months like October 2016 showing spikes.
 
+High Review Scores:The average review score remains around 4.4, indicating positive customer feedback across all months.
+
+Payment Method Diversity: Credit card and boleto appear frequently, showing a preference for flexible payment options. Understanding which payment methods drive higher revenue can help optimize payment offerings.
+
+Use Case : 
+
+Payment Strategy Optimization : Knowing the preferred payment methods and their contribution to revenue can help businesses adjust payment offerings to cater to customer preferences.
+
+![Screenshot Description]()
 
