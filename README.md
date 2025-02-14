@@ -13,4 +13,4 @@ São Paulo (SP) leads with the highest revenue, making it a strategic city for m
 The top 5 cities contribute significantly to total revenue, indicating that e-commerce activity is concentrated in major urban centers.
 Businesses can expand their operations and promotions in high-potential cities like Belo Horizonte and Brasília.
 
-![Screenshot Description]()
+![Screenshot Description](Query 1 SS.png)
