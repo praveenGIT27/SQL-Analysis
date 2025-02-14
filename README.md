@@ -49,5 +49,10 @@ November 2017 and September 2018 exhibit unusually high churn rates, indicating 
 ![Screenshot Description](https://github.com/praveenGIT27/SQL-Analysis/blob/main/Query%203%20SS.png)
 
 
+## Query 4 : 
+
+This query combines data from revenue, review scores, and payment methods to provide a comprehensive view of monthly business performance. It’s useful for understanding the relationship between sales performance and customer satisfaction while identifying payment trends.
+
+
 
 
