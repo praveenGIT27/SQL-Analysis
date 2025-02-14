@@ -13,17 +13,7 @@ ORDER BY total_revenue DESC
 LIMIT 5;
 
 
---- Impact: The query identifies cities and states with the highest revenue and order volumes, helping the business understand where their most valuable customers are located.
-
---- Use Case:
---- Prioritize marketing efforts in high-revenue areas.
---- Optimize inventory and delivery logistics for cities with high demand.
- 
-
-
 --2) Monthly churn rate of customers
-
--- Impact :Helps predict customer behavior and build strategies to reduce churn.
 
 WITH customer_activity AS (
     SELECT customer_id, DATE_TRUNC('month', order_purchase_timestamp) AS month
@@ -46,12 +36,6 @@ WHERE previous_month_customers IS NOT NULL;
 
 
 --3) Query that identifies the purchase trend year over year.
---Impact: Helps determine peak sales months and off-peak periods.
---Use Case:
----Boost inventory during high-demand months.
----Run promotional campaigns to improve sales during slower months.
----Prepare logistics and staffing plans for seasonal spikes.
-
 
 select
     a.month as month_no,
@@ -87,18 +71,8 @@ group by a.month
 order by month_no asc;
 
 
-4)
--- The below query analyzes the monthly revenue and average review score for each month in 2018, using the order_items table for calculating revenue and the order_reviews table for calculating review scores.
 
-
----We’ll use:
-
---A subquery to calculate monthly revenue from the order_items table.
---Join it with the average monthly review score from the order_reviews table.
--- Join it with the payments table to get the total payment by payment type.
-
--- Impact : Combines revenue, customer satisfaction, and payment patterns for a full picture.
-
+--4) The  query analyzes the monthly revenue and average review score for each month in 2018, using the order_items table for calculating revenue and the order_reviews table for calculating review scores.
 
 SELECT 
 revenue.year,
