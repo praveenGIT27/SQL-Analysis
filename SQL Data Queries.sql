@@ -13,29 +13,7 @@ ORDER BY total_revenue DESC
 LIMIT 5;
 
 
---2) Monthly churn rate of customers
-
-WITH customer_activity AS (
-    SELECT customer_id, DATE_TRUNC('month', order_purchase_timestamp) AS month
-    FROM ecommerce_schema.orders
-    GROUP BY customer_id, DATE_TRUNC('month', order_purchase_timestamp)
-),
-monthly_churn AS (
-    SELECT month,
-           COUNT(DISTINCT customer_id) AS active_customers,
-           LAG(COUNT(DISTINCT customer_id)) OVER (ORDER BY month) AS previous_month_customers
-    FROM customer_activity
-    GROUP BY month
-)
-SELECT month, 
-       active_customers,
-       previous_month_customers,
-       (previous_month_customers - active_customers) * 100 / previous_month_customers AS churn_rate
-FROM monthly_churn
-WHERE previous_month_customers IS NOT NULL;
-
-
---3) Query that identifies the purchase trend year over year.
+--2) Query that identifies the purchase trend year over year.
 
 select
     a.month as month_no,
@@ -69,6 +47,30 @@ FROM (
     order by order_delivered_customer_date asc) a
 group by a.month
 order by month_no asc;
+
+
+
+--3) Monthly churn rate of customers
+
+WITH customer_activity AS (
+    SELECT customer_id, DATE_TRUNC('month', order_purchase_timestamp) AS month
+    FROM ecommerce_schema.orders
+    GROUP BY customer_id, DATE_TRUNC('month', order_purchase_timestamp)
+),
+monthly_churn AS (
+    SELECT month,
+           COUNT(DISTINCT customer_id) AS active_customers,
+           LAG(COUNT(DISTINCT customer_id)) OVER (ORDER BY month) AS previous_month_customers
+    FROM customer_activity
+    GROUP BY month
+)
+SELECT month, 
+       active_customers,
+       previous_month_customers,
+       (previous_month_customers - active_customers) * 100 / previous_month_customers AS churn_rate
+FROM monthly_churn
+WHERE previous_month_customers IS NOT NULL;
+
 
 
 
