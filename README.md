@@ -65,5 +65,5 @@ Use Case :
 
 Payment Strategy Optimization : Knowing the preferred payment methods and their contribution to revenue can help businesses adjust payment offerings to cater to customer preferences.
 
-![Screenshot Description]()
+![Screenshot Description](https://github.com/praveenGIT27/SQL-Analysis/blob/main/Query%204SS.png)
 
