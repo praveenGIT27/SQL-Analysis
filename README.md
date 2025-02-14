@@ -15,7 +15,9 @@ Businesses can expand their operations and promotions in high-potential cities l
 
 
 
-Query 2: This query analyzes the monthly customer order trend over three years (2016–2018) for delivered orders. It provides a clear understanding of seasonal order patterns and year-over-year growth trends, allowing businesses to identify peak months for customer demand.
+Query 2: Monthly Customer Order Trends
+
+This query analyzes the monthly customer order trend over three years (2016–2018) for delivered orders. It provides a clear understanding of seasonal order patterns and year-over-year growth trends, allowing businesses to identify peak months for customer demand.
 
 Key Observations:
 
