@@ -1,6 +1,6 @@
 # SQL Ecommerce Data Analysis Project
 
-Query: Top 5 Cities by Total Revenue (2016-2018)
+## Query 1 : Top 5 Cities by Total Revenue (2016-2018)
 
 Query Objective:
 Identify the top-performing cities in Brazil in terms of total revenue and order volume to help focus business efforts on high-revenue regions.
@@ -17,7 +17,7 @@ Businesses can expand their operations and promotions in high-potential cities l
 
 
 
-Query 2: Monthly Customer Order Trends
+## Query 2: Monthly Customer Order Trends
 
 This query analyzes the monthly customer order trend over three years (2016–2018) for delivered orders. It provides a clear understanding of seasonal order patterns and year-over-year growth trends, allowing businesses to identify peak months for customer demand.
 
@@ -36,7 +36,7 @@ Resource Allocation and Logistics Planning : Operations Teams can allocate addit
 ![Screenshot Description](https://github.com/praveenGIT27/SQL-Analysis/blob/main/Query%202%20SS.png)
 
 
-Query 3: Monthly Customer Churn Rate
+## Query 3: Monthly Customer Churn Rate
 
 This query Tracks monthly churn rates to identify patterns in customer retention and assess periods with high customer turnover.
 
