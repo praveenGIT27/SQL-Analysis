@@ -20,38 +20,30 @@ print(df)
 
 --2) Query that identifies the purchase trend year over year.
 
-select
-    a.month as month_no,
-    CASE
-        WHEN a.month = 1 then 'Jan'
-        WHEN a.month = 2 then 'Fe'
-        WHEN a.month = 3 then 'Mar'
-        WHEN a.month = 4 then 'Apr'
-        WHEN a.month = 5 then 'May'
-        WHEN a.month = 6 then 'Jun'
-        WHEN a.month = 7 then 'July'
-        WHEN a.month = 8 then 'Aug'
-        WHEN a.month = 9 then 'Sep'
-        WHEN a.month = 10 then 'Oct'
-        WHEN a.month = 11 then 'Nov'
-        WHEN a.month = 12 then 'Dec'
-    END AS month_name,
-    sum(case when a.year = 2016 then 1 else 0 end) as Year2016,
-    sum(case when a.year= 2017 then 1 else 0 end) as Year2017,
-    sum(case when a.year= 2018 then 1 else 0 end) as Year2018,
+query = """
+SELECT
+    a.month AS month_no,
+    DATENAME(MONTH, DATEFROMPARTS(2000, a.month, 1)) AS month_name,
+    SUM(CASE WHEN a.year = 2016 THEN 1 ELSE 0 END) AS Year2016,
+    SUM(CASE WHEN a.year = 2017 THEN 1 ELSE 0 END) AS Year2017,
+    SUM(CASE WHEN a.year = 2018 THEN 1 ELSE 0 END) AS Year2018
 FROM (
-    select 
+    SELECT 
         customer_id,
         order_id,
         order_delivered_customer_date,  
         order_status,
-        EXTRACT(YEAR FROM order_delivered_customer_date) AS year,
-        EXTRACT(MONTH FROM order_delivered_customer_date) AS month,
-    from ecommerce_schema.orders
-    where order_status = 'delivered' and order_delivered_customer_date is not NULL
-    order by order_delivered_customer_date asc) a
-group by a.month
-order by month_no asc;
+        YEAR(order_delivered_customer_date) AS year,
+        MONTH(order_delivered_customer_date) AS month
+    FROM orders
+    WHERE order_status = 'delivered' AND order_delivered_customer_date IS NOT NULL
+) a
+GROUP BY a.month
+ORDER BY month_no ASC;
+"""
+
+df = pd.read_sql_query(query, conn)
+print(df)
 
 
 
