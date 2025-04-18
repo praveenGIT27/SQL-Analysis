@@ -1,62 +1,64 @@
-CREATE TABLE ecommerce_schema.customers (
-    customer_id STRING PRIMARY KEY,
-    customer_unique_id STRING,
+CREATE DATABASE EcommerceDB;
+
+-- Customers Table
+CREATE TABLE customers (
+    customer_id VARCHAR(50) PRIMARY KEY,
+    customer_unique_id VARCHAR(50),
     customer_zip_code_prefix INT,
-    customer_city STRING,
-    customer_state STRING
+    customer_city VARCHAR(100),
+    customer_state VARCHAR(10)
 );
 
-
-
-CREATE TABLE ecommerce_schema.sellers (
-    seller_id STRING PRIMARY KEY,
+-- Sellers Table
+CREATE TABLE sellers (
+    seller_id VARCHAR(50) PRIMARY KEY,
     seller_zip_code_prefix INT,
-    seller_city STRING,
-    seller_state STRING
+    seller_city VARCHAR(100),
+    seller_state VARCHAR(10)
 );
 
-
-CREATE TABLE ecommerce_schema.orders (
-    order_id STRING PRIMARY KEY,
-    customer_id STRING,
-    order_status STRING,
-    order_purchase_timestamp TIMESTAMP,
-    order_approved_at TIMESTAMP NULL,
-    order_delivered_carrier_date TIMESTAMP NULL,
-    order_delivered_customer_date TIMESTAMP NULL,
-    order_estimated_delivery_date TIMESTAMP,
-    FOREIGN KEY (customer_id) REFERENCES ecommerce_schema.customers(customer_id)
+-- Orders Table
+CREATE TABLE orders (
+    order_id VARCHAR(50) PRIMARY KEY,
+    customer_id VARCHAR(50),
+    order_status VARCHAR(50),
+    order_purchase_timestamp DATETIME2,
+    order_approved_at DATETIME2 NULL,
+    order_delivered_carrier_date DATETIME2 NULL,
+    order_delivered_customer_date DATETIME2 NULL,
+    order_estimated_delivery_date DATETIME2,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
 
-
-CREATE TABLE ecommerce_schema.order_items (
-    order_id STRING,
+-- Order Items Table
+CREATE TABLE order_items (
+    order_id VARCHAR(50),
     order_item_id INT,
-    product_id STRING,
-    seller_id STRING,
-    shipping_limit_date TIMESTAMP,
+    product_id VARCHAR(50),
+    seller_id VARCHAR(50),
+    shipping_limit_date DATETIME2,
     price FLOAT,
     freight_value FLOAT,
     PRIMARY KEY (order_id, order_item_id),
-    FOREIGN KEY (order_id) REFERENCES ecommerce_schema.orders(order_id),
-    FOREIGN KEY (seller_id) REFERENCES ecommerce_schema.sellers(seller_id)
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (seller_id) REFERENCES sellers(seller_id)
 );
 
-
-CREATE TABLE ecommerce_schema.payments (
-    order_id STRING,
+-- Payments Table
+CREATE TABLE payments (
+    order_id VARCHAR(50),
     payment_sequential INT,
-    payment_type STRING,
+    payment_type VARCHAR(50),
     payment_installments INT,
     payment_value FLOAT,
     PRIMARY KEY (order_id, payment_sequential),
-    FOREIGN KEY (order_id) REFERENCES ecommerce_schema.orders(order_id)
+    FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
 
-
-CREATE TABLE ecommerce_schema.products (
-    product_id STRING PRIMARY KEY,
-    product_category_name STRING,
+-- Products Table
+CREATE TABLE products (
+    product_id VARCHAR(50) PRIMARY KEY,
+    product_category_name VARCHAR(100),
     product_name_length INT NULL,
     product_description_length INT NULL,
     product_photos_qty INT NULL,
@@ -66,30 +68,30 @@ CREATE TABLE ecommerce_schema.products (
     product_width_cm INT NULL
 );
 
-
-CREATE TABLE ecommerce_schema.reviews (
-    review_id STRING PRIMARY KEY,
-    order_id STRING,
+-- Reviews Table
+CREATE TABLE reviews (
+    review_id VARCHAR(50) PRIMARY KEY,
+    order_id VARCHAR(50),
     review_score INT,
     review_creation_date DATE,
-    review_answer_timestamp TIMESTAMP,
-    FOREIGN KEY (order_id) REFERENCES ecommerce_schema.orders(order_id)
+    review_answer_timestamp DATETIME2,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
 
-
-CREATE TABLE ecommerce_schema.geolocation (
+-- Geolocation Table
+CREATE TABLE geolocation (
     geolocation_zip_code_prefix INT,
     geolocation_lat FLOAT,
     geolocation_lng FLOAT,
-    geolocation_city STRING,
-    geolocation_state STRING
+    geolocation_city VARCHAR(100),
+    geolocation_state VARCHAR(10)
+);
+
+-- Product Category Translation Table
+CREATE TABLE product_category_translation (
+    product_category_name VARCHAR(100) PRIMARY KEY,
+    product_category_name_english VARCHAR(100)
 );
 
 
-CREATE TABLE ecommerce_schema.product_category_translation (
-    product_category_name STRING PRIMARY KEY,
-    product_category_name_english STRING
-);
 
-
-SHOW TABLES IN ecommerce_schema;
