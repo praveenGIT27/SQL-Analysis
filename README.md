@@ -1,5 +1,9 @@
 # SQL Ecommerce Data Analysis Project
 
+ER Diagram :
+
+![image](https://github.com/user-attachments/assets/e30a324f-b910-4d47-9909-ac64cd7c032f)
+
 ## Query 1 : Top 5 Cities by Total Revenue (2016-2018)
 
 Query Objective:
