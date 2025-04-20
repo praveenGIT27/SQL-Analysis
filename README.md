@@ -1,5 +1,9 @@
 # SQL Ecommerce Data Analysis Project
 
+ER Diagram :
+
+![image](https://github.com/user-attachments/assets/e30a324f-b910-4d47-9909-ac64cd7c032f)
+
 ## Query 1 : Top 5 Cities by Total Revenue (2016-2018)
 
 Query Objective:
@@ -66,4 +70,27 @@ Use Case :
 Payment Strategy Optimization : Knowing the preferred payment methods and their contribution to revenue can help businesses adjust payment offerings to cater to customer preferences.
 
 ![Screenshot Description](https://github.com/praveenGIT27/SQL-Analysis/blob/main/Query%204SS.png)
+
+## Query 5:
+
+Identify top-rated and least-rated product categories based on customer feedback. This helps inform product strategy, quality improvement, and marketing efforts.
+
+Observations:
+
+CDs, DVDs & Musicals (Avg. Score: 4.64) leads the chart, showing strong customer satisfaction — likely due to low return risk and product expectation alignment.
+
+Diapers & Hygiene (Avg. Score: 3.26) is the lowest, possibly due to high customer expectations around hygiene standards.
+
+Use Case :
+
+Procurement Teams: Reassess vendor quality and packaging for low-rated categories like Diapers and Office Furniture.
+
+Marketing Teams: Highlight high-performing categories like Books and Music in promotions and campaigns.
+
+
+
+
+
+
+
 
