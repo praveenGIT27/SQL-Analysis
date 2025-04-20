@@ -71,3 +71,26 @@ Payment Strategy Optimization : Knowing the preferred payment methods and their 
 
 ![Screenshot Description](https://github.com/praveenGIT27/SQL-Analysis/blob/main/Query%204SS.png)
 
+## Query 5:
+
+Identify top-rated and least-rated product categories based on customer feedback. This helps inform product strategy, quality improvement, and marketing efforts.
+
+Observations:
+
+CDs, DVDs & Musicals (Avg. Score: 4.64) leads the chart, showing strong customer satisfaction — likely due to low return risk and product expectation alignment.
+
+Diapers & Hygiene (Avg. Score: 3.26) is the lowest, possibly due to high customer expectations around hygiene standards.
+
+Use Case :
+
+Procurement Teams: Reassess vendor quality and packaging for low-rated categories like Diapers and Office Furniture.
+
+Marketing Teams: Highlight high-performing categories like Books and Music in promotions and campaigns.
+
+
+
+
+
+
+
+
