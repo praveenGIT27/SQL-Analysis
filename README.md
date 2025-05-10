@@ -17,7 +17,6 @@ The top 5 cities contribute significantly to total revenue, indicating that e-co
 
 Businesses can expand their operations and promotions in high-potential cities like Belo Horizonte and Brasília.
 
-![Screenshot Description](https://github.com/praveenGIT27/SQL-Analysis/blob/main/Query%201%20SS.png)
 
 
 
@@ -37,7 +36,6 @@ Demand Forecasting : Marketing and Sales Teams can predict periods of high deman
 
 Resource Allocation and Logistics Planning : Operations Teams can allocate additional resources, such as delivery staff and support teams, during peak order periods to ensure smooth order fulfillment.
 
-![Screenshot Description](https://github.com/praveenGIT27/SQL-Analysis/blob/main/Query%202%20SS.png)
 
 
 ## Query 3: Monthly Customer Churn Rate
@@ -50,7 +48,6 @@ Volatile churn rates in the early months are due to a low customer base.
 
 November 2017 and September 2018 exhibit unusually high churn rates, indicating possible operational or seasonal challenges.
 
-![Screenshot Description](https://github.com/praveenGIT27/SQL-Analysis/blob/main/Query%203%20SS.png)
 
 
 ## Query 4 : 
@@ -69,7 +66,6 @@ Use Case :
 
 Payment Strategy Optimization : Knowing the preferred payment methods and their contribution to revenue can help businesses adjust payment offerings to cater to customer preferences.
 
-![Screenshot Description](https://github.com/praveenGIT27/SQL-Analysis/blob/main/Query%204SS.png)
 
 ## Query 5:
 
